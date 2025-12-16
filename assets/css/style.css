@@ -453,36 +453,52 @@ input:focus, textarea:focus{
   color: var(--muted);
 }
 
-/* =========================================================
-   ABOUT PAGE MODAL (Intro) — set to match Arpit-style modal
-   ========================================================= */
+/* ===== About page: INTRODUCTION modal style (Arpit-style) ===== */
 
-.intro-backdrop{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:42px 16px;
+body.page-about{
+  overflow: hidden; /* stop page scroll behind modal */
+}
+
+/* Fullscreen dim backdrop */
+.page-about .intro-backdrop{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px 16px;
   background:
     radial-gradient(900px 520px at 20% 10%, rgba(0, 200, 255, .10), transparent 60%),
     radial-gradient(900px 520px at 80% 90%, rgba(120, 0, 255, .10), transparent 60%),
     rgba(7,10,14,.94);
 }
 
-.intro-modal{
-  width: min(520px, 92vw);              /* narrower like sample */
+/* Narrow card like Arpit */
+.page-about .intro-modal{
+  width: min(520px, 92vw);
   max-height: calc(100vh - 84px);
   overflow: auto;
+
   background: rgba(14, 18, 24, .80);
   border: 1px solid rgba(255,255,255,.10);
   border-radius: 18px;
   padding: 22px;
   position: relative;
+
   box-shadow: 0 22px 70px rgba(0,0,0,.65);
   backdrop-filter: blur(10px);
+
+  /* Hide scrollbar but still allow scroll */
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE/Edge */
+}
+.page-about .intro-modal::-webkit-scrollbar{
+  width: 0;
+  height: 0;
 }
 
-.intro-close{
+/* Close button */
+.page-about .intro-close{
   position:absolute;
   top:14px;
   right:14px;
@@ -498,50 +514,46 @@ input:focus, textarea:focus{
   line-height: 1;
   opacity:.9;
 }
-.intro-close:hover{ opacity:1; transform: translateY(-1px); }
+.page-about .intro-close:hover{ opacity:1; transform: translateY(-1px); }
 
-.intro-title{
-  letter-spacing:.35em;
+/* Title */
+.page-about .intro-title{
+  letter-spacing: .35em;
   font-size: 13px;
   margin: 0;
   color: rgba(255,255,255,.92);
 }
-
-.intro-rule{
+.page-about .intro-rule{
   height:1px;
   margin:12px 0 18px;
   background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0));
 }
 
-/* Big portrait image */
-.intro-image{
-  width:100%;
+/* Image block (portrait like sample) */
+.page-about .intro-image{
+  width: 100%;
   height: min(62vh, 520px);
   border-radius: 12px;
-  overflow:hidden;
+  overflow: hidden;
   border: 1px solid rgba(255,255,255,.08);
   background: rgba(255,255,255,.03);
 }
 
-.intro-image img{
-  width:100%;
-  height:100%;
-  object-fit: cover;                /* Arpit style fill */
-  object-position: center 10%;      /* face priority */
+.page-about .intro-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 12%; /* adjust this if needed: 0% = top, 50% = center */
   filter: grayscale(100%);
+  display: block;
 }
 
-.intro-text{
+/* Text */
+.page-about .intro-text{
   margin-top: 14px;
   color: rgba(255,255,255,.78);
   font-size: 13px;
   line-height: 1.75;
 }
-.intro-text p{ margin: 0 0 12px; }
-
-.intro-actions{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top: 14px;
-}
+.page-about .intro-text p{ margin: 0 0 12px; }
+.page-about .intro-text strong{ color: rgba(255,255,255,.92); font-weight: 600; }
