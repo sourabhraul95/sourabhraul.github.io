@@ -14,36 +14,43 @@
       margin: 0 !important;
       padding: 0 !important;
       min-height: 100vh !important;
-      overflow: hidden !important; /* scroll inside modal */
+      overflow: hidden !important;
+      background: #070a0e !important;
     }
 
+    /* Fullscreen dim backdrop */
     .page-about .intro-backdrop{
       position: fixed !important;
       inset: 0 !important;
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      padding: 48px 16px !important;
+      padding: 42px 16px !important;
       box-sizing: border-box !important;
+
       background:
-        radial-gradient(900px 500px at 20% 10%, rgba(0, 200, 255, .10), transparent 60%),
-        radial-gradient(900px 500px at 80% 90%, rgba(120, 0, 255, .10), transparent 60%),
-        rgba(7,10,14,.96) !important;
+        radial-gradient(900px 520px at 20% 10%, rgba(0, 200, 255, .10), transparent 60%),
+        radial-gradient(900px 520px at 80% 90%, rgba(120, 0, 255, .10), transparent 60%),
+        rgba(7,10,14,.94) !important;
     }
 
+    /* Card (narrow like Arpit sample) */
     .page-about .intro-modal{
-      width: min(820px, 100%) !important;
-      max-height: calc(100vh - 96px) !important;
+      width: min(520px, 92vw) !important;              /* key: narrow card */
+      max-height: calc(100vh - 84px) !important;
       overflow: auto !important;
-      background: rgba(14, 18, 24, .78) !important;
+
+      background: rgba(14, 18, 24, .80) !important;
       border: 1px solid rgba(255,255,255,.10) !important;
       border-radius: 18px !important;
-      padding: 26px !important;
+      padding: 22px !important;
       position: relative !important;
-      box-shadow: 0 20px 60px rgba(0,0,0,.55) !important;
+
+      box-shadow: 0 22px 70px rgba(0,0,0,.65) !important;
       backdrop-filter: blur(10px) !important;
     }
 
+    /* Close button */
     .page-about .intro-close{
       position:absolute !important;
       top:14px !important;
@@ -62,9 +69,10 @@
     }
     .page-about .intro-close:hover{ opacity:1 !important; transform: translateY(-1px) !important; }
 
+    /* Title like sample */
     .page-about .intro-title{
-      letter-spacing:.35em !important;
-      font-size: 14px !important;
+      letter-spacing: .35em !important;
+      font-size: 13px !important;
       margin: 0 !important;
       color: rgba(255,255,255,.92) !important;
     }
@@ -75,34 +83,29 @@
       background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0)) !important;
     }
 
-    /* ✅ Image frame (face visible, no crop) */
+    /* BIG portrait image like Arpit */
     .page-about .intro-image{
-      background: rgba(255,255,255,.03) !important;
-      border: 1px solid rgba(255,255,255,.08) !important;
+      width: 100% !important;
+      height: min(62vh, 520px) !important;            /* key: tall image */
       border-radius: 12px !important;
-      padding: 12px !important;
-      height: min(520px, 55vh) !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
       overflow: hidden !important;
+      border: 1px solid rgba(255,255,255,.08) !important;
+      background: rgba(255,255,255,.03) !important;
     }
 
     .page-about .intro-image img{
-      width: auto !important;
-      height: auto !important;
-      max-width: 100% !important;
-      max-height: 100% !important;
-      object-fit: contain !important;
-      object-position: center top !important;
-      border-radius: 10px !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;                   /* key: fills area like sample */
+      object-position: center 10% !important;         /* key: keep face visible */
       filter: grayscale(100%) !important;
+      display: block !important;
     }
 
     .page-about .intro-text{
-      margin-top: 18px !important;
-      color: rgba(255,255,255,.80) !important;
-      font-size: 14px !important;
+      margin-top: 14px !important;
+      color: rgba(255,255,255,.78) !important;
+      font-size: 13px !important;
       line-height: 1.75 !important;
     }
 
@@ -110,11 +113,16 @@
       margin: 0 0 12px !important;
     }
 
+    .page-about strong{
+      color: rgba(255,255,255,.92) !important;
+      font-weight: 600 !important;
+    }
+
     .page-about .intro-actions{
       display:flex !important;
       gap:10px !important;
       flex-wrap:wrap !important;
-      margin-top: 16px !important;
+      margin-top: 14px !important;
     }
 
     .page-about .btn{
@@ -127,15 +135,12 @@
       background: rgba(255,255,255,.08) !important;
       color: rgba(255,255,255,.92) !important;
       text-decoration:none !important;
+      font-size: 12px !important;
+      letter-spacing: .06em !important;
+      text-transform: uppercase !important;
     }
     .page-about .btn:hover{ transform: translateY(-1px) !important; background: rgba(255,255,255,.10) !important; }
     .page-about .btn.ghost{ background: transparent !important; }
-
-    /* Small highlight style */
-    .page-about strong{
-      color: rgba(255,255,255,.92) !important;
-      font-weight: 600 !important;
-    }
   </style>
 </head>
 
@@ -171,9 +176,9 @@
         </p>
 
         <p>
-          I’m confident using a wide range of SEO and analytics tools, including Ahrefs, SEMrush, Ubersuggest, Screaming Frog, Moz Pro,
-          Majestic, BrightLocal, Lumar (DeepCrawl), SimilarWeb, GA4, Google Search Console, Google Tag Manager, Looker Studio,
-          and Google Keyword Planner — alongside performance tools like Lighthouse, GTmetrix, and PageSpeed Insights.
+          I’m confident using tools including Ahrefs, SEMrush, Ubersuggest, Screaming Frog, Moz Pro, Majestic, BrightLocal, Lumar (DeepCrawl),
+          SimilarWeb, GA4, Google Search Console, Google Tag Manager, Looker Studio, and Google Keyword Planner — alongside Lighthouse, GTmetrix,
+          and PageSpeed Insights.
         </p>
 
         <p>
@@ -181,9 +186,8 @@
         </p>
 
         <p>
-          Please explore my Experience section to see the work I’ve supported and the results I’ve delivered.
-          And if you have a bit more time, feel free to check out my Projects and work examples.
-          I’m delighted to connect and collaborate — thanks for stopping by!
+          Please explore my Experience section to see the work I’ve supported and the results I’ve delivered. And if you have a bit more time,
+          feel free to check out my Projects and work examples. I’m delighted to connect and collaborate — thanks for stopping by!
         </p>
 
         <div class="intro-actions">
