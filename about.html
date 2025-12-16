@@ -32,7 +32,7 @@
     }
 
     .page-about .intro-modal{
-      width: min(780px, 100%) !important;
+      width: min(820px, 100%) !important;
       max-height: calc(100vh - 96px) !important;
       overflow: auto !important;
       background: rgba(14, 18, 24, .78) !important;
@@ -75,16 +75,13 @@
       background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0)) !important;
     }
 
-    /* ✅ FIX: frame + fit image WITHOUT cropping (face will show) */
+    /* ✅ Image frame (face visible, no crop) */
     .page-about .intro-image{
       background: rgba(255,255,255,.03) !important;
       border: 1px solid rgba(255,255,255,.08) !important;
       border-radius: 12px !important;
       padding: 12px !important;
-
-      /* This controls the visible frame height */
       height: min(520px, 55vh) !important;
-
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
@@ -92,25 +89,25 @@
     }
 
     .page-about .intro-image img{
-      /* IMPORTANT: don’t force width=100% (that can cause crop/zoom) */
       width: auto !important;
       height: auto !important;
-
       max-width: 100% !important;
       max-height: 100% !important;
-
-      object-fit: contain !important;          /* ✅ no crop */
-      object-position: center top !important;  /* ✅ face priority */
-
+      object-fit: contain !important;
+      object-position: center top !important;
       border-radius: 10px !important;
       filter: grayscale(100%) !important;
     }
 
     .page-about .intro-text{
       margin-top: 18px !important;
-      color: rgba(255,255,255,.78) !important;
+      color: rgba(255,255,255,.80) !important;
       font-size: 14px !important;
-      line-height: 1.7 !important;
+      line-height: 1.75 !important;
+    }
+
+    .page-about .intro-text p{
+      margin: 0 0 12px !important;
     }
 
     .page-about .intro-actions{
@@ -133,6 +130,12 @@
     }
     .page-about .btn:hover{ transform: translateY(-1px) !important; background: rgba(255,255,255,.10) !important; }
     .page-about .btn.ghost{ background: transparent !important; }
+
+    /* Small highlight style */
+    .page-about strong{
+      color: rgba(255,255,255,.92) !important;
+      font-weight: 600 !important;
+    }
   </style>
 </head>
 
@@ -150,18 +153,37 @@
 
       <div class="intro-text">
         <p>
-          Hello! I’m a digital marketer specialising in SEO (on-page, off-page and technical), focused on turning audits,
-          search data and user intent into measurable organic growth.
+          Hello there! I’m <strong>Sourabh Raul</strong>, a results-driven SEO specialist and digital marketer based in Liverpool.
+          With over <strong>5 years</strong> of professional experience in SEO and a strong academic foundation, I’m passionate about
+          helping brands grow their organic presence by combining technical expertise with clear, customer-first strategy.
         </p>
 
         <p>
-          I’ve worked across content optimisation, keyword research, site structure/internal linking, CRO support and
-          performance reporting — with a practical, data-led approach to improving rankings and conversions.
+          My academic journey has been marked by excellence with an <strong>MSc in Digital Marketing</strong> from the prestigious
+          Liverpool John Moores University, which strengthened the way I connect marketing theory with real-world performance and ROI.
         </p>
 
         <p>
-          Explore the Experience section to see the roles and responsibilities I’ve handled, and Projects for practical
-          work examples.
+          My work focuses on building end-to-end SEO strategies that improve rankings, increase organic traffic, and support business growth.
+          I’m experienced across <strong>Technical SEO</strong>, <strong>On-Page</strong> and <strong>Off-Page</strong> optimisation,
+          in-depth keyword research, SEO audits, content strategy, local and international SEO, link building, and digital PR.
+          I enjoy digging into data, finding what’s holding performance back, and turning it into a practical roadmap teams can actually execute.
+        </p>
+
+        <p>
+          I’m confident using a wide range of SEO and analytics tools, including Ahrefs, SEMrush, Ubersuggest, Screaming Frog, Moz Pro,
+          Majestic, BrightLocal, Lumar (DeepCrawl), SimilarWeb, GA4, Google Search Console, Google Tag Manager, Looker Studio,
+          and Google Keyword Planner — alongside performance tools like Lighthouse, GTmetrix, and PageSpeed Insights.
+        </p>
+
+        <p>
+          I also use AI tools like ChatGPT-4o, Perplexity, and Claude to speed up research and ideation while keeping the strategy human and grounded.
+        </p>
+
+        <p>
+          Please explore my Experience section to see the work I’ve supported and the results I’ve delivered.
+          And if you have a bit more time, feel free to check out my Projects and work examples.
+          I’m delighted to connect and collaborate — thanks for stopping by!
         </p>
 
         <div class="intro-actions">
