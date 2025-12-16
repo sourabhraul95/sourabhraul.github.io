@@ -3,107 +3,56 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About | Sourabh Raul</title>
-  <meta name="description" content="About Sourabh Raul – SEO specialist profile, education and certifications." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://YOUR_GITHUB_USERNAME.github.io/about.html" />
-  <meta property="og:title" content="About | Sourabh Raul" />
-  <meta property="og:description" content="About Sourabh Raul – SEO specialist profile, education and certifications." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/about.html" />
-  <meta name="theme-color" content="#070a0f" />
+  <title>About • SEO + Tech Portfolio</title>
+
+  <!-- Your existing CSS -->
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body>
-  <div class="container">
-    <header class="topbar">
-      <div class="brand">
-        <div class="logo" title="SEO / Tech Portfolio">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-  <path d="M8 3h8l4 6-8 12L4 9l4-6Z" stroke="currentColor" stroke-width="1.6" />
-  <path d="M4 9h16" stroke="currentColor" stroke-width="1.6" />
-  <path d="M10 9 12 21 14 9" stroke="currentColor" stroke-width="1.2" opacity=".75"/>
-</svg>
-        </div>
-        <div class="title">SEO • Tech • Portfolio</div>
+  <!-- Backdrop (modal-style page) -->
+  <div class="intro-backdrop">
+    <section class="intro-modal" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+      <!-- Close button (goes back to home) -->
+      <a class="intro-close" href="index.html" aria-label="Close">×</a>
+
+      <h1 id="introTitle" class="intro-title">INTRODUCTION</h1>
+      <div class="intro-rule"></div>
+
+      <div class="intro-image">
+        <!-- Make sure your image is here: assets/img/profile.jpg -->
+        <img src="assets/img/profile.jpg" alt="Profile photo" />
       </div>
 
-      <nav class="nav" aria-label="Primary">
-        <a data-nav href="index.html">Home</a>
-        <a data-nav href="about.html">About</a>
-        <a data-nav href="experience.html">Experience</a>
-        <a data-nav href="projects.html">Projects</a>
-        <a data-nav href="skills.html">Skills</a>
-        <a data-nav href="contact.html">Contact</a>
-      </nav>
-    </header>
+      <div class="intro-text">
+        <p>
+          Hello! I’m a digital marketer specialising in SEO (on-page, off-page and technical), focused on turning audits,
+          search data and user intent into measurable organic growth.
+        </p>
 
-    
-<main class="section" role="main">
-  <div class="grid-2">
-    <div class="card">
-      <h1 class="h1">About Me</h1>
-      <p class="p">
-        I’m a digital marketer specialising in SEO across on-page, off-page and technical SEO, with a focus on turning audits
-        and data into measurable organic growth.
-      </p>
+        <p>
+          I’ve worked across content optimisation, keyword research, site structure/internal linking, CRO support and
+          performance reporting — with a practical, data-led approach to improving rankings and conversions.
+        </p>
 
-      <h3>Education</h3>
-      <div class="small muted">
-        <div><b>Liverpool John Moores University</b> — MSc in Digital Marketing (2023–2024)</div>
-        <div><b>Theem College of Engineering</b> — Bachelors of Automobile Engineering (2013–2020)</div>
-      </div>
+        <p>
+          Explore the Experience section to see the roles and responsibilities I’ve handled, and Projects for practical
+          work examples.
+        </p>
 
-      <h3>Certifications</h3>
-      <div class="small muted">
-        UC Davis (Digital Marketing Specialization) • Illinois University (Marketing Management) • Google Digital Unlocked •
-        MobileAction (ASO) • HubSpot Inbound Marketing • Digital Marketing hands-on experience
-      </div>
-
-      <div class="btn-row" style="margin-top:14px">
-        <a class="btn" href="experience.html">View Experience</a>
-        <a class="btn" href="skills.html">View Skillset</a>
-      </div>
-    </div>
-
-    <aside class="card">
-      <div class="profile">
-        <div class="avatar">
-          <img src="assets/img/profile.jpg" alt="Profile photo" />
-        </div>
-        <div class="quick">
-          <div class="muted">Contact</div>
-          <div><a href="mailto:07sourabh.raul@gmail.com">07sourabh.raul@gmail.com</a></div>
-          <div><a href="tel:+447771110435">+44 7771 110435</a></div>
-          <div><a href="https://www.linkedin.com/in/sourabhraul/" target="_blank" rel="noreferrer">LinkedIn</a></div>
+        <div class="intro-actions">
+          <a class="btn" href="experience.html">View Experience</a>
+          <a class="btn ghost" href="projects.html">View Projects</a>
         </div>
       </div>
-
-      <h3 style="margin-top:16px">What I do</h3>
-      <div class="chips">
-        <span class="chip accent">Crawlability & Indexation</span>
-        <span class="chip">Schema</span>
-        <span class="chip">Content Taxonomy</span>
-        <span class="chip">Keyword / Gap Analysis</span>
-        <span class="chip">Link-building</span>
-        <span class="chip">CRO</span>
-        <span class="chip">Reporting</span>
-      </div>
-
-      <div class="note" style="margin-top:12px">
-        Replace <b>assets/img/profile.jpg</b> with your own photo.
-      </div>
-    </aside>
-  </div>
-</main>
-
-
-    <footer class="page-footer">
-      <div>© <span data-year></span> • Built on GitHub Pages</div>
-      <div class="muted">Dark SEO-Tech theme • Lightweight HTML/CSS/JS</div>
-    </footer>
+    </section>
   </div>
 
-  <script src="assets/js/main.js"></script>
+  <!-- Close on ESC -->
+  <script>
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>
