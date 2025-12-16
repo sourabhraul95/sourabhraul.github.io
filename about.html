@@ -5,157 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About • SEO + Tech Portfolio</title>
 
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
-
-  <style>
-    html, body { height: 100%; margin: 0; }
-
-    body.page-about{
-      margin: 0 !important;
-      padding: 0 !important;
-      min-height: 100vh !important;
-      overflow: hidden !important;
-      background: #070a0e !important;
-    }
-
-    /* Fullscreen dim backdrop */
-    .page-about .intro-backdrop{
-      position: fixed !important;
-      inset: 0 !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      padding: 42px 16px !important;
-      box-sizing: border-box !important;
-
-      background:
-        radial-gradient(900px 520px at 20% 10%, rgba(0, 200, 255, .10), transparent 60%),
-        radial-gradient(900px 520px at 80% 90%, rgba(120, 0, 255, .10), transparent 60%),
-        rgba(7,10,14,.94) !important;
-    }
-
-    /* Card (narrow like Arpit sample) */
-    .page-about .intro-modal{
-      width: min(520px, 92vw) !important;              /* key: narrow card */
-      max-height: calc(100vh - 84px) !important;
-      overflow: auto !important;
-
-      background: rgba(14, 18, 24, .80) !important;
-      border: 1px solid rgba(255,255,255,.10) !important;
-      border-radius: 18px !important;
-      padding: 22px !important;
-      position: relative !important;
-
-      box-shadow: 0 22px 70px rgba(0,0,0,.65) !important;
-      backdrop-filter: blur(10px) !important;
-    }
-
-    /* Close button */
-    .page-about .intro-close{
-      position:absolute !important;
-      top:14px !important;
-      right:14px !important;
-      width:38px !important;
-      height:38px !important;
-      display:grid !important;
-      place-items:center !important;
-      border-radius: 12px !important;
-      border: 1px solid rgba(255,255,255,.14) !important;
-      color:#fff !important;
-      text-decoration:none !important;
-      font-size: 22px !important;
-      line-height: 1 !important;
-      opacity:.9 !important;
-    }
-    .page-about .intro-close:hover{ opacity:1 !important; transform: translateY(-1px) !important; }
-
-    /* Title like sample */
-    .page-about .intro-title{
-      letter-spacing: .35em !important;
-      font-size: 13px !important;
-      margin: 0 !important;
-      color: rgba(255,255,255,.92) !important;
-    }
-
-    .page-about .intro-rule{
-      height:1px !important;
-      margin:12px 0 18px !important;
-      background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0)) !important;
-    }
-
-    /* BIG portrait image like Arpit */
-    .page-about .intro-image{
-      width: 100% !important;
-      height: min(62vh, 520px) !important;            /* key: tall image */
-      border-radius: 12px !important;
-      overflow: hidden !important;
-      border: 1px solid rgba(255,255,255,.08) !important;
-      background: rgba(255,255,255,.03) !important;
-    }
-
-    .page-about .intro-image img{
-      width: 100% !important;
-      height: 100% !important;
-      object-fit: cover !important;                   /* key: fills area like sample */
-      object-position: center 10% !important;         /* key: keep face visible */
-      filter: grayscale(100%) !important;
-      display: block !important;
-    }
-
-    .page-about .intro-text{
-      margin-top: 14px !important;
-      color: rgba(255,255,255,.78) !important;
-      font-size: 13px !important;
-      line-height: 1.75 !important;
-    }
-
-    .page-about .intro-text p{
-      margin: 0 0 12px !important;
-    }
-
-    .page-about strong{
-      color: rgba(255,255,255,.92) !important;
-      font-weight: 600 !important;
-    }
-
-    .page-about .intro-actions{
-      display:flex !important;
-      gap:10px !important;
-      flex-wrap:wrap !important;
-      margin-top: 14px !important;
-    }
-
-    .page-about .btn{
-      display:inline-flex !important;
-      align-items:center !important;
-      justify-content:center !important;
-      padding:10px 14px !important;
-      border-radius: 12px !important;
-      border: 1px solid rgba(255,255,255,.16) !important;
-      background: rgba(255,255,255,.08) !important;
-      color: rgba(255,255,255,.92) !important;
-      text-decoration:none !important;
-      font-size: 12px !important;
-      letter-spacing: .06em !important;
-      text-transform: uppercase !important;
-    }
-    .page-about .btn:hover{ transform: translateY(-1px) !important; background: rgba(255,255,255,.10) !important; }
-    .page-about .btn.ghost{ background: transparent !important; }
-  </style>
 </head>
 
-<body class="page-about">
+<body>
   <div class="intro-backdrop">
     <section class="intro-modal" role="dialog" aria-modal="true" aria-labelledby="introTitle">
+      <!-- Close button -->
       <a class="intro-close" href="index.html" aria-label="Close">×</a>
 
       <h1 id="introTitle" class="intro-title">INTRODUCTION</h1>
       <div class="intro-rule"></div>
 
+      <!-- Image -->
       <div class="intro-image">
-        <img src="assets/img/profile.jpg" alt="Profile photo" />
+        <!-- TIP: this zooms slightly + keeps top/face visible -->
+        <img
+          src="assets/img/profile.jpg"
+          alt="Sourabh Raul"
+          style="object-position:center 0%; transform: scale(1.12);"
+        />
       </div>
 
+      <!-- Text -->
       <div class="intro-text">
         <p>
           Hello there! I’m <strong>Sourabh Raul</strong>, a results-driven SEO specialist and digital marketer based in Liverpool.
@@ -164,15 +37,14 @@
         </p>
 
         <p>
-          My academic journey has been marked by excellence with an <strong>MSc in Digital Marketing</strong> from the prestigious
-          Liverpool John Moores University, which strengthened the way I connect marketing theory with real-world performance and ROI.
+          My academic journey has been marked by excellence with an <strong>MSc in Digital Marketing</strong> from Liverpool John Moores University,
+          which strengthened the way I connect marketing theory with real-world performance and ROI.
         </p>
 
         <p>
           My work focuses on building end-to-end SEO strategies that improve rankings, increase organic traffic, and support business growth.
           I’m experienced across <strong>Technical SEO</strong>, <strong>On-Page</strong> and <strong>Off-Page</strong> optimisation,
-          in-depth keyword research, SEO audits, content strategy, local and international SEO, link building, and digital PR.
-          I enjoy digging into data, finding what’s holding performance back, and turning it into a practical roadmap teams can actually execute.
+          keyword research, SEO audits, content strategy, local and international SEO, link building, and digital PR.
         </p>
 
         <p>
