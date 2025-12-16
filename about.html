@@ -5,14 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About • SEO + Tech Portfolio</title>
 
-  <!-- Keep your main stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
 
-  <!-- FIX: force this page to render as centered modal (overrides theme layout) -->
   <style>
     html, body { height: 100%; margin: 0; }
 
-    /* Prevent any global wrappers from pushing layout */
     body.page-about{
       margin: 0 !important;
       padding: 0 !important;
@@ -28,7 +25,6 @@
       justify-content: center !important;
       padding: 48px 16px !important;
       box-sizing: border-box !important;
-
       background:
         radial-gradient(900px 500px at 20% 10%, rgba(0, 200, 255, .10), transparent 60%),
         radial-gradient(900px 500px at 80% 90%, rgba(120, 0, 255, .10), transparent 60%),
@@ -39,13 +35,11 @@
       width: min(780px, 100%) !important;
       max-height: calc(100vh - 96px) !important;
       overflow: auto !important;
-
       background: rgba(14, 18, 24, .78) !important;
       border: 1px solid rgba(255,255,255,.10) !important;
       border-radius: 18px !important;
       padding: 26px !important;
       position: relative !important;
-
       box-shadow: 0 20px 60px rgba(0,0,0,.55) !important;
       backdrop-filter: blur(10px) !important;
     }
@@ -81,21 +75,33 @@
       background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0)) !important;
     }
 
-    /* ✅ UPDATED: image frame + NO crop (shows face) */
+    /* ✅ FIX: frame + fit image WITHOUT cropping (face will show) */
     .page-about .intro-image{
       background: rgba(255,255,255,.03) !important;
       border: 1px solid rgba(255,255,255,.08) !important;
       border-radius: 12px !important;
-      padding: 10px !important;
+      padding: 12px !important;
+
+      /* This controls the visible frame height */
+      height: min(520px, 55vh) !important;
+
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      overflow: hidden !important;
     }
 
     .page-about .intro-image img{
-      display:block !important;
-      width:100% !important;
-      max-height: 55vh !important;      /* keeps it from becoming huge */
-      height:auto !important;
-      object-fit: contain !important;   /* ✅ shows full photo (no cropping) */
-      object-position: center top !important;
+      /* IMPORTANT: don’t force width=100% (that can cause crop/zoom) */
+      width: auto !important;
+      height: auto !important;
+
+      max-width: 100% !important;
+      max-height: 100% !important;
+
+      object-fit: contain !important;          /* ✅ no crop */
+      object-position: center top !important;  /* ✅ face priority */
+
       border-radius: 10px !important;
       filter: grayscale(100%) !important;
     }
@@ -114,7 +120,6 @@
       margin-top: 16px !important;
     }
 
-    /* Buttons (only if your main CSS doesn't already style them) */
     .page-about .btn{
       display:inline-flex !important;
       align-items:center !important;
