@@ -5,22 +5,133 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About • SEO + Tech Portfolio</title>
 
-  <!-- Your existing CSS -->
+  <!-- Keep your main stylesheet -->
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- FIX: force this page to render as centered modal (overrides theme layout) -->
+  <style>
+    html, body { height: 100%; margin: 0; }
+
+    /* Prevent any global wrappers from pushing layout */
+    body.page-about{
+      margin: 0 !important;
+      padding: 0 !important;
+      min-height: 100vh !important;
+      overflow: hidden !important; /* scroll inside modal */
+    }
+
+    .page-about .intro-backdrop{
+      position: fixed !important;
+      inset: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 48px 16px !important;
+      box-sizing: border-box !important;
+
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(0, 200, 255, .10), transparent 60%),
+        radial-gradient(900px 500px at 80% 90%, rgba(120, 0, 255, .10), transparent 60%),
+        rgba(7,10,14,.96) !important;
+    }
+
+    .page-about .intro-modal{
+      width: min(780px, 100%) !important;
+      max-height: calc(100vh - 96px) !important;
+      overflow: auto !important;
+
+      background: rgba(14, 18, 24, .78) !important;
+      border: 1px solid rgba(255,255,255,.10) !important;
+      border-radius: 18px !important;
+      padding: 26px !important;
+      position: relative !important;
+
+      box-shadow: 0 20px 60px rgba(0,0,0,.55) !important;
+      backdrop-filter: blur(10px) !important;
+    }
+
+    .page-about .intro-close{
+      position:absolute !important;
+      top:14px !important;
+      right:14px !important;
+      width:38px !important;
+      height:38px !important;
+      display:grid !important;
+      place-items:center !important;
+      border-radius: 12px !important;
+      border: 1px solid rgba(255,255,255,.14) !important;
+      color:#fff !important;
+      text-decoration:none !important;
+      font-size: 22px !important;
+      line-height: 1 !important;
+      opacity:.9 !important;
+    }
+    .page-about .intro-close:hover{ opacity:1 !important; transform: translateY(-1px) !important; }
+
+    .page-about .intro-title{
+      letter-spacing:.35em !important;
+      font-size: 14px !important;
+      margin: 0 !important;
+      color: rgba(255,255,255,.92) !important;
+    }
+
+    .page-about .intro-rule{
+      height:1px !important;
+      margin:12px 0 18px !important;
+      background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0)) !important;
+    }
+
+    .page-about .intro-image img{
+      display:block !important;
+      width:100% !important;
+      max-height: 55vh !important; /* key: stops it becoming full-screen tall */
+      height:auto !important;
+      object-fit: cover !important;
+      border-radius: 12px !important;
+      border: 1px solid rgba(255,255,255,.08) !important;
+      filter: grayscale(100%) !important;
+    }
+
+    .page-about .intro-text{
+      margin-top: 18px !important;
+      color: rgba(255,255,255,.78) !important;
+      font-size: 14px !important;
+      line-height: 1.7 !important;
+    }
+
+    .page-about .intro-actions{
+      display:flex !important;
+      gap:10px !important;
+      flex-wrap:wrap !important;
+      margin-top: 16px !important;
+    }
+
+    /* Buttons (only if your main CSS doesn't already style them) */
+    .page-about .btn{
+      display:inline-flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      padding:10px 14px !important;
+      border-radius: 12px !important;
+      border: 1px solid rgba(255,255,255,.16) !important;
+      background: rgba(255,255,255,.08) !important;
+      color: rgba(255,255,255,.92) !important;
+      text-decoration:none !important;
+    }
+    .page-about .btn:hover{ transform: translateY(-1px) !important; background: rgba(255,255,255,.10) !important; }
+    .page-about .btn.ghost{ background: transparent !important; }
+  </style>
 </head>
 
-<body>
-  <!-- Backdrop (modal-style page) -->
+<body class="page-about">
   <div class="intro-backdrop">
     <section class="intro-modal" role="dialog" aria-modal="true" aria-labelledby="introTitle">
-      <!-- Close button (goes back to home) -->
       <a class="intro-close" href="index.html" aria-label="Close">×</a>
 
       <h1 id="introTitle" class="intro-title">INTRODUCTION</h1>
       <div class="intro-rule"></div>
 
       <div class="intro-image">
-        <!-- Make sure your image is here: assets/img/profile.jpg -->
         <img src="assets/img/profile.jpg" alt="Profile photo" />
       </div>
 
@@ -48,7 +159,6 @@
     </section>
   </div>
 
-  <!-- Close on ESC -->
   <script>
     document.addEventListener("keydown", (e) => {
       if (e.key === "Escape") window.location.href = "index.html";
