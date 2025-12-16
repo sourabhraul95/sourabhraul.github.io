@@ -81,14 +81,22 @@
       background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0)) !important;
     }
 
+    /* ✅ UPDATED: image frame + NO crop (shows face) */
+    .page-about .intro-image{
+      background: rgba(255,255,255,.03) !important;
+      border: 1px solid rgba(255,255,255,.08) !important;
+      border-radius: 12px !important;
+      padding: 10px !important;
+    }
+
     .page-about .intro-image img{
       display:block !important;
       width:100% !important;
-      max-height: 55vh !important; /* key: stops it becoming full-screen tall */
+      max-height: 55vh !important;      /* keeps it from becoming huge */
       height:auto !important;
-      object-fit: cover !important;
-      border-radius: 12px !important;
-      border: 1px solid rgba(255,255,255,.08) !important;
+      object-fit: contain !important;   /* ✅ shows full photo (no cropping) */
+      object-position: center top !important;
+      border-radius: 10px !important;
       filter: grayscale(100%) !important;
     }
 
