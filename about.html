@@ -8,9 +8,36 @@
 </head>
 
 <body class="page-about">
+  <div class="container">
+    <!-- Header (same as other pages) -->
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" title="SEO / Tech Portfolio">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M8 3h8l4 6-8 12L4 9l4-6Z" stroke="currentColor" stroke-width="1.6" />
+            <path d="M4 9h16" stroke="currentColor" stroke-width="1.6" />
+            <path d="M10 9 12 21 14 9" stroke="currentColor" stroke-width="1.2" opacity=".75"/>
+          </svg>
+        </div>
+        <div class="title">SEO • Tech • Portfolio</div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a data-nav href="/">Home</a>
+        <a data-nav href="about.html">About</a>
+        <a data-nav href="experience.html">Experience</a>
+        <a data-nav href="projects.html">Projects</a>
+        <a data-nav href="skills.html">Skills</a>
+        <a data-nav href="contact.html">Contact</a>
+      </nav>
+    </header>
+  </div>
+
+  <!-- Modal Backdrop -->
   <div class="intro-backdrop">
     <section class="intro-modal" role="dialog" aria-modal="true" aria-labelledby="introTitle">
-      <a class="intro-close" href="index.html" aria-label="Close">×</a>
+      <!-- Close: go to root homepage (no index.html in URL) -->
+      <a class="intro-close" href="/" aria-label="Close">×</a>
 
       <h1 id="introTitle" class="intro-title">INTRODUCTION</h1>
       <div class="intro-rule"></div>
@@ -58,8 +85,10 @@
 
   <script>
     document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") window.location.href = "index.html";
+      if (e.key === "Escape") window.location.href = "/";
     });
   </script>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
