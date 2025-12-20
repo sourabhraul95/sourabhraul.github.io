@@ -6,77 +6,321 @@
   <title>Contact | Sourabh Raul</title>
   <meta name="description" content="Contact Sourabh Raul." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://YOUR_GITHUB_USERNAME.github.io/contact.html" />
-  <meta property="og:title" content="Contact | Sourabh Raul" />
-  <meta property="og:description" content="Contact Sourabh Raul." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io/contact.html" />
   <meta name="theme-color" content="#070a0f" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Contact modal styling (Arpit-style) -->
+  <style>
+    html, body { height: 100%; margin: 0; }
+
+    body.page-contact{
+      min-height: 100vh;
+      overflow: hidden; /* stop background scroll */
+    }
+
+    /* Fullscreen dim backdrop */
+    .page-contact .contact-backdrop{
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 44px 16px;
+      box-sizing: border-box;
+      background:
+        radial-gradient(900px 520px at 20% 10%, rgba(0, 200, 255, .10), transparent 60%),
+        radial-gradient(900px 520px at 80% 90%, rgba(120, 0, 255, .10), transparent 60%),
+        rgba(7,10,14,.94);
+    }
+
+    /* Modal card */
+    .page-contact .contact-modal{
+      width: min(560px, 92vw);
+      max-height: calc(100vh - 88px);
+      overflow: auto;
+
+      background: rgba(14, 18, 24, .82);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 18px;
+      padding: 22px;
+      position: relative;
+
+      box-shadow: 0 22px 70px rgba(0,0,0,.65);
+      backdrop-filter: blur(10px);
+
+      /* Hide scrollbar (no “slider”), but keep scroll */
+      scrollbar-width: none;        /* Firefox */
+      -ms-overflow-style: none;     /* IE/Edge legacy */
+    }
+    .page-contact .contact-modal::-webkit-scrollbar{ width:0; height:0; } /* Chrome/Safari */
+
+    /* Close button */
+    .page-contact .contact-close{
+      position:absolute;
+      top:14px;
+      right:14px;
+      width:38px;
+      height:38px;
+      display:grid;
+      place-items:center;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.14);
+      color:#fff;
+      text-decoration:none;
+      font-size: 22px;
+      line-height: 1;
+      opacity:.9;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .page-contact .contact-close:hover{
+      opacity: 1;
+      transform: translateY(-1px);
+    }
+
+    /* Title */
+    .page-contact .contact-title{
+      letter-spacing: .35em;
+      font-size: 13px;
+      margin: 0;
+      color: rgba(255,255,255,.92);
+    }
+    .page-contact .contact-rule{
+      height:1px;
+      margin:12px 0 18px;
+      background: linear-gradient(90deg, rgba(255,255,255,.35), rgba(255,255,255,0));
+    }
+
+    /* Banner (like Arpit) */
+    .page-contact .contact-banner{
+      width: 100%;
+      height: 170px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.10);
+      background: linear-gradient(135deg, rgba(0,200,255,.45), rgba(120,0,255,.30));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 28px;
+      margin-bottom: 18px;
+      position: relative;
+    }
+    .page-contact .contact-banner::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(600px 220px at 50% 10%, rgba(255,255,255,.18), transparent 65%);
+      pointer-events:none;
+      opacity:.55;
+    }
+    .page-contact .banner-icon{
+      width: 58px;
+      height: 58px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.25);
+      display:grid;
+      place-items:center;
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(6px);
+      position: relative;
+      z-index: 1;
+    }
+    .page-contact .banner-icon svg{
+      width: 30px;
+      height: 30px;
+      opacity: .95;
+    }
+
+    /* Form */
+    .page-contact .contact-form{
+      display: grid;
+      gap: 12px;
+    }
+    .page-contact .row-2{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    @media (max-width: 520px){
+      .page-contact .row-2{ grid-template-columns: 1fr; }
+    }
+
+    .page-contact label{
+      display:block;
+      font-size: 11px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+      margin: 4px 0 6px;
+    }
+
+    /* Match your existing input styles but slightly tighter */
+    .page-contact input, .page-contact textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 10px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.90);
+      outline:none;
+    }
+    .page-contact textarea{
+      min-height: 170px;
+      resize: vertical;
+    }
+    .page-contact input:focus, .page-contact textarea:focus{
+      border-color: rgba(86,168,255,.55);
+      box-shadow: 0 0 0 2px rgba(86,168,255,.12) inset;
+    }
+
+    .page-contact .btn-row{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    /* Buttons like sample (primary light button + dark reset) */
+    .page-contact .btn-primary{
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.92);
+      color: rgba(10,12,16,.92);
+      letter-spacing:.16em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      cursor: pointer;
+    }
+    .page-contact .btn-secondary{
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.22);
+      background: transparent;
+      color: rgba(255,255,255,.90);
+      letter-spacing:.16em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      cursor: pointer;
+    }
+    .page-contact .btn-primary:hover,
+    .page-contact .btn-secondary:hover{
+      transform: translateY(-1px);
+    }
+
+    /* Direct links section */
+    .page-contact .direct{
+      margin-top: 18px;
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .page-contact .direct h2{
+      margin: 0 0 10px;
+      font-size: 13px;
+      letter-spacing:.10em;
+      text-transform: none;
+      color: rgba(255,255,255,.90);
+    }
+    .page-contact .direct a{
+      text-decoration: underline;
+      text-decoration-color: rgba(78,242,197,.35);
+    }
+    .page-contact .direct a:hover{
+      text-decoration-color: rgba(86,168,255,.70);
+    }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <header class="topbar">
-      <div class="brand">
-        <div class="logo" title="SEO / Tech Portfolio">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-  <path d="M8 3h8l4 6-8 12L4 9l4-6Z" stroke="currentColor" stroke-width="1.6" />
-  <path d="M4 9h16" stroke="currentColor" stroke-width="1.6" />
-  <path d="M10 9 12 21 14 9" stroke="currentColor" stroke-width="1.2" opacity=".75"/>
-</svg>
+
+<body class="page-contact">
+  <div class="contact-backdrop">
+    <section class="contact-modal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+      <!-- Close back to Home -->
+      <a class="contact-close" href="index.html" aria-label="Close">×</a>
+
+      <h1 id="contactTitle" class="contact-title">CONTACT</h1>
+      <div class="contact-rule"></div>
+
+      <!-- Banner (no image required) -->
+      <div class="contact-banner" aria-hidden="true">
+        <div class="banner-icon" title="Phone">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M7 4c.6-1 2-1.2 2.8-.4l2 2c.6.6.6 1.6 0 2.2l-1 1c1.1 2.1 2.8 3.8 4.9 4.9l1-1c.6-.6 1.6-.6 2.2 0l2 2c.8.8.6 2.2-.4 2.8-1.2.8-2.6 1.1-4 .8-6.1-1.2-11-6.1-12.2-12.2C5.9 6.6 6.2 5.2 7 4Z"
+              stroke="currentColor" stroke-width="1.6" opacity=".95"/>
+          </svg>
         </div>
-        <div class="title">SEO • Tech • Portfolio</div>
+        <div class="banner-icon" title="Email">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z"
+              stroke="currentColor" stroke-width="1.6"/>
+            <path d="m5.5 7 6.5 5 6.5-5" stroke="currentColor" stroke-width="1.6" opacity=".9"/>
+          </svg>
+        </div>
+        <div class="banner-icon" title="@" >
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M16 12v1.5c0 1.4 1 2.5 2.3 2.5 1.5 0 2.7-1.3 2.7-3 0-5-4.1-9-9-9S3 8 3 13s4 9 9 9c2.1 0 3.9-.6 5.3-1.7"
+              stroke="currentColor" stroke-width="1.6" opacity=".9"/>
+          </svg>
+        </div>
       </div>
 
-      <nav class="nav" aria-label="Primary">
-        <a data-nav href="index.html">Home</a>
-        <a data-nav href="about.html">About</a>
-        <a data-nav href="experience.html">Experience</a>
-        <a data-nav href="projects.html">Projects</a>
-        <a data-nav href="skills.html">Skills</a>
-        <a data-nav href="contact.html">Contact</a>
-      </nav>
-    </header>
+      <!-- Form (mailto) -->
+      <form id="contactForm" class="contact-form">
+        <div class="row-2">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" type="text" autocomplete="name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" type="email" autocomplete="email" required />
+          </div>
+        </div>
 
-    
-<main class="section" role="main">
-  <div class="grid-2">
-    <div class="card">
-      <h1 class="h1">Contact</h1>
-      <p class="p">Fastest way: email or LinkedIn.</p>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" required></textarea>
+        </div>
 
-      <div class="chips" style="margin-top:12px">
-        <span class="chip accent"><a href="mailto:07sourabh.raul@gmail.com">07sourabh.raul@gmail.com</a></span>
-        <span class="chip"><a href="tel:+447771110435">+44 7771 110435</a></span>
-        <span class="chip"><a href="https://www.linkedin.com/in/sourabhraul/" target="_blank" rel="noreferrer">LinkedIn Profile</a></span>
-      </div>
-
-      <div class="note" style="margin-top:12px">
-        Want a real form that sends messages? Use Formspree (free) or a Google Form and paste the URL here.
-      </div>
-    </div>
-
-    <div class="card">
-      <h2>Message (mailto)</h2>
-      <p class="p">This form opens your email app with a pre-filled message.</p>
-
-      <form class="form" onsubmit="return window.open(`mailto:07sourabh.raul@gmail.com?subject=${encodeURIComponent(document.getElementById('subj').value)}&body=${encodeURIComponent(document.getElementById('msg').value + '\n\nFrom: ' + document.getElementById('from').value)}`), false;">
-        <input id="from" type="text" placeholder="Your name / email" required />
-        <input id="subj" type="text" placeholder="Subject" required />
-        <textarea id="msg" placeholder="Your message" required></textarea>
-        <button class="btn" type="submit">Open Email</button>
+        <div class="btn-row">
+          <button class="btn-primary" type="submit">Send Message</button>
+          <button class="btn-secondary" type="reset">Reset</button>
+        </div>
       </form>
-    </div>
+
+      <div class="direct">
+        <h2>Or contact me directly:</h2>
+        <div>Email - <a href="mailto:07sourabh.raul@gmail.com">07sourabh.raul@gmail.com</a></div>
+        <div>Phone - <a href="tel:+447771110435">+44 7771 110435</a></div>
+        <div>LinkedIn - <a href="https://www.linkedin.com/in/sourabhraul/" target="_blank" rel="noreferrer">Sourabh Raul</a></div>
+        <div>GitHub - <a href="https://github.com/sourabhraul95" target="_blank" rel="noreferrer">sourabhraul95</a></div>
+      </div>
+    </section>
   </div>
-</main>
 
+  <script>
+    // Send via mailto (works on GitHub Pages)
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+      e.preventDefault();
 
-    <footer class="page-footer">
-      <div>© <span data-year></span> • Built on GitHub Pages</div>
-      <div class="muted">Dark SEO-Tech theme • Lightweight HTML/CSS/JS</div>
-    </footer>
-  </div>
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
 
-  <script src="assets/js/main.js"></script>
+      const to = "07sourabh.raul@gmail.com";
+      const subject = `Portfolio enquiry from ${name}`;
+      const body = `${message}\n\n---\nFrom: ${name}\nEmail: ${email}`;
+
+      const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+    });
+
+    // Close on ESC
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") window.location.href = "index.html";
+    });
+  </script>
 </body>
 </html>
